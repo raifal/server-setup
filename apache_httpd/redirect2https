@@ -1,0 +1,6 @@
+<VirtualHost *:80>
+	# redirect to https for all servernames
+     RewriteEngine On
+     RewriteCond %{HTTPS} !=on
+     RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+</VirtualHost>
