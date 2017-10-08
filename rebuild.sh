@@ -1,12 +1,14 @@
 source ../secrets/docker.env
 export $(cut -d= -f1 ../secrets/docker.env)
 
+sudo docker stop hsm-server
+sudo docker rm -v hsm-server
+
 sudo docker stop rf_apache_httpd
 sudo docker rm -v rf_apache_httpd
 sudo docker rmi rf_apache_httpd
 
 sudo docker network rm rf_network
-sudo docker network inspect rf_network
 sudo docker network create rf_network
 
 sudo docker build --build-arg apache_httpd_passwd_user=${apache_httpd_passwd_user} --build-arg apache_httpd_passwd_password=${apache_httpd_passwd_password} -t rf_apache_httpd  apache_httpd/.
