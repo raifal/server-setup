@@ -3,9 +3,13 @@ export $(cut -d= -f1 ../secrets/docker.env)
 
 sudo docker network disconnect rf_network rf_apache_httpd
 sudo docker network disconnect rf_network hsm-server
+sudo docker network disconnect rf_network hsm-database
 
 sudo docker stop hsm-server
 sudo docker rm -v hsm-server
+
+sudo docker stop hsm-database
+sudo docker rm -v hsm-database
 
 sudo docker stop rf_apache_httpd
 sudo docker rm -v rf_apache_httpd
