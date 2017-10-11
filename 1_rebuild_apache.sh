@@ -1,5 +1,5 @@
-source ../secrets/docker.env
-export $(cut -d= -f1 ../secrets/docker.env)
+source ../secrets/secrets.env
+export $(cut -d= -f1 ../secrets/secrets.env)
 
 sudo docker network disconnect rf_network rf_apache_httpd
 sudo docker network disconnect rf_network hsm-database
