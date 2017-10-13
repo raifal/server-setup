@@ -4,6 +4,8 @@ FROM debian:jessie
 
 ARG apache_httpd_passwd_user
 ARG apache_httpd_passwd_password
+ARG arduino_interface_passwd_user
+ARG arduino_interface_passwd_password
 
 # install apache 2
 RUN apt-get update && apt-get install -y apache2
