@@ -41,6 +41,7 @@ VOLUME [ "/var/log/apache2" ]
 # expose http and https ports
 EXPOSE 80 
 EXPOSE 443
+EXPOSE 7070
 
 # run apache in foreground
 CMD ["apachectl", "-DFOREGROUND"]
