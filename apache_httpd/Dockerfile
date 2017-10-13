@@ -24,6 +24,7 @@ RUN htpasswd -b -c /var/www/passwd/passwords ${apache_httpd_passwd_user} ${apach
 RUN htpasswd -b -c /var/www/passwd/passwords_arduino_interface ${arduino_interface_passwd_user} ${arduino_interface_passwd_password}
 
 # config for forcing redirect to https
+ADD ./ports.conf /etc/apache2/sites-available/ports.conf
 ADD ./redirect2https /etc/apache2/sites-available/redirect2https.conf
 ADD ./my-ssl.conf /etc/apache2/sites-available/my-ssl.conf
 ADD ./my-https.conf /etc/apache2/sites-available/my-https.conf
@@ -41,7 +42,7 @@ VOLUME [ "/var/log/apache2" ]
 # expose http and https ports
 EXPOSE 80 
 EXPOSE 443
-EXPOSE 7070
+EXPOSE 7071
 
 # run apache in foreground
 CMD ["apachectl", "-DFOREGROUND"]
