@@ -20,5 +20,7 @@ sudo docker build --build-arg apache_httpd_passwd_user=${apache_httpd_passwd_use
 sudo docker run --restart='always' -d --name=rf_apache_httpd -p 80:80 -p 443:443 -p 7071:7071 rf_apache_httpd
 sudo docker network connect rf_network rf_apache_httpd
 
+sudo docker cp ./apache_httpd/html rf_apache_httpd:/var/www
+
 # sudo docker run -it --rm --link rf_jenkins_master --name=rf_apache_httpd -p 80:80 -p 443:443 rf_apache_httpd /bin/bash
 # apachectl -DFOREGROUND &
