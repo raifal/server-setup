@@ -23,9 +23,6 @@ RUN mkdir -p /var/www/passwd
 RUN htpasswd -b -c /var/www/passwd/passwords ${apache_httpd_passwd_user} ${apache_httpd_passwd_password}
 RUN htpasswd -b -c /var/www/passwd/passwords_arduino_interface ${arduino_interface_passwd_user} ${arduino_interface_passwd_password}
 
-# static website
-ADD ./html /var/www/
-
 # config for forcing redirect to https
 ADD ./ports.conf /etc/apache2/ports.conf
 ADD ./redirect2https /etc/apache2/sites-available/redirect2https.conf
