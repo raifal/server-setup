@@ -1,5 +1,8 @@
-Setup Infrastructure Docker Container
+Setup Infrastructure
 ======================================
 
-Apache2
+Basic infrastructure containing:
+- Apache Webserver (redirects to other containers)
+- Postgres Database
 
+Separate docker network is created.
