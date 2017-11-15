@@ -1,7 +1,7 @@
 source ../secrets/secrets.env
 export $(cut -d= -f1 ../secrets/secrets.env)
 
-mkdir ssl_generated
+mkdir ./apache_http/ssl_generated
 
 sudo docker stop temp-ssl
 sudo docker rm -v temp-ssl
