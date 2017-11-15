@@ -10,10 +10,8 @@ ARG arduino_interface_passwd_password
 # install apache 2
 RUN apt-get update && apt-get install -y apache2
 
-# Create SSL certificates
-# RUN mkdir -p /etc/ssl/private
-# RUN mkdir -p /etc/ssl/certs
-RUN openssl req -new -x509 -days 99999 -sha1 -newkey rsa:1024 -nodes -keyout /etc/ssl/private/ss_server.key -out /etc/ssl/certs/ss_server.crt -subj '/O=Rainer.Faller/OU=Rainer.Faller/CN=Rainer.Faller'
+ADD ../ssl_generated/ss_server.key /etc/ssl/private/ss_server.key
+ADD ../ssl_generated/ss_server.crt /etc/ssl/certs/ss_server.crt
 
 # install needded modules
 RUN a2enmod ssl proxy proxy proxy_balancer proxy_http headers status rewrite proxy_html xml2enc
