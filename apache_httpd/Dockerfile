@@ -4,6 +4,8 @@ FROM debian:jessie
 
 ARG apache_httpd_passwd_user
 ARG apache_httpd_passwd_password
+ARG apache_httpd_passwd_user2
+ARG apache_httpd_passwd_password2
 ARG arduino_interface_passwd_user
 ARG arduino_interface_passwd_password
 
@@ -19,6 +21,7 @@ RUN a2enmod ssl proxy proxy proxy_balancer proxy_http headers status rewrite pro
 # add user to passwd for basic authentication
 RUN mkdir -p /var/www/passwd
 RUN htpasswd -b -c /var/www/passwd/passwords ${apache_httpd_passwd_user} ${apache_httpd_passwd_password}
+RUN htpasswd -b -c /var/www/passwd/passwords ${apache_httpd_passwd_user2} ${apache_httpd_passwd_password2}
 RUN htpasswd -b -c /var/www/passwd/passwords_arduino_interface ${arduino_interface_passwd_user} ${arduino_interface_passwd_password}
 
 # config for forcing redirect to https
