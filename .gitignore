@@ -14,4 +14,4 @@ build
 .settings
 .gradle
 **/.DS_Store
-apache_http/ssl_generated
+apache_httpd/ssl_generated
